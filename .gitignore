@@ -16,3 +16,4 @@ Release/
 # Other
 out/
 build/
+.vscode
