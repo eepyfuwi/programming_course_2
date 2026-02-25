@@ -51,7 +51,7 @@ int main() {
     cout << "-----------------------------------" << endl;
     cout << "   Dolg" << " " << "    Procent" << " " << "   Platezh" << endl;
     cout << "-----------------------------------" << endl;
-    float a = 1+ (p/100);
+    float a = 1+ (p/(12*100));
     float mpay = sum / m;
     while (sum > 0) {
         per = sum * a - sum;
