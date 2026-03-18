@@ -10,7 +10,7 @@ using namespace std;
 // - если несколько строк — в фиксированном порядке
 
 void zapakouka(int[18], int*);
-void raspakouka(int[18], int*, int);
+void raspakouka(int[18], int*);
 
 
 int main() {
@@ -20,7 +20,7 @@ int main() {
     int N = 0;
     for (int i = 0; i < 18; i++) {
 
-        uniform_int_distribution<> dis_int(60, 500);
+        uniform_int_distribution<> dis_int(1, 20);
         int rd_int = dis_int(gen);
         STARTart[i] = rd_int;
         N += rd_int;
@@ -28,8 +28,12 @@ int main() {
     }
     int* pSTARTar;
     int* ar = new int[N];
-    raspakouka(STARTart, ar, N);
+    raspakouka(STARTart, ar);
     cout << "---------------------------------------" << endl;
+    for (int i = 0; i < N; i++) {
+        cout << ar[i] << endl;
+        
+    }
     int art[18]{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
     zapakouka(art, ar);
    
@@ -45,7 +49,7 @@ void zapakouka(int art[18], int* ar) {
     return;
 }
 
-void raspakouka(int art[18], int* ar, int N) {
+void raspakouka(int art[18], int* ar) {
     int* par;
     par = ar;
     for (int i = 0; i < 18; i++) {
