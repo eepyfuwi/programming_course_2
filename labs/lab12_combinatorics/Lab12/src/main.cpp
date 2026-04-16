@@ -45,9 +45,9 @@ int solve(int** M, int r, int K) {
         for (int i = 0; i < K; i++) {
             for (int j = 0; j < K; j++) {
                 if (M[i][j] == 1)
-                    cout << "Q "; // Ферзь
+                    cout << "Q ";
                 else
-                    cout << ". "; // Пустая клетка
+                    cout << ". "; 
             }
             cout << endl;
         }
