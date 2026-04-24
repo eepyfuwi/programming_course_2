@@ -1,0 +1,6 @@
+[submodule "matplotplusplus"]
+	path = matplotplusplus
+	url = https://github.com/alandefreitas/matplotplusplus.git
+[submodule "labs/lab13_linear_algebra/CMakeProject2/matplotplusplus"]
+	path = labs/lab13_linear_algebra/CMakeProject2/matplotplusplus
+	url = https://github.com/alandefreitas/matplotplusplus.git
