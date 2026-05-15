@@ -47,7 +47,7 @@ int main()
 	int m, n;
 	file >> n >> m;
 
-	if (m <= 0 || n <= 0) {
+	if (m < 0 || n < 0) {
 		cerr << "wrong razmeri (m=" << m << ", n=" << n << ")" << endl;
 		file.close();
 		return false;
@@ -196,12 +196,38 @@ int main()
 			}
 		}
 	}
+	vector<bool> has_edge(n, false);
+	for (auto& e : edges) {
+		has_edge[e.first] = true;
+		has_edge[e.second] = true;
+	}
+
+	for (int i = 0; i < n; i++) {
+		if (!has_edge[i]) {
+			edges.push_back({ i, i });
+		}
+	}
 	vector<double> x(n), y(n);
 	for (int i = 0; i < n; i++) {
 		double angle = 2.0 * 3.14 * i / n;
 		x[i] = cos(angle);
 		y[i] = sin(angle);
 	}
+
+	if (edges.empty()) {
+		auto p = scatter(x, y);
+		vector<double> colors(n);
+		for (int i = 0; i < n; i++) {
+			colors[i] = C[i];
+		}
+		p->marker_colors(colors);
+		p->marker_face(true);
+		p->marker_size(15);
+		view(2);
+		show();
+		return 0;
+	}
+
 	auto g = graph(edges);
 	g->x_data(x);
 	g->y_data(y);
